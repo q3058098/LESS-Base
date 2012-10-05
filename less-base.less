@@ -16,12 +16,36 @@
 
 /*
 ==================================================
+    Brand-Specific Variables
+==================================================
+*/
+
+
+/* --- Brand Colors -------------------- */
+
+@brandColor: #000;
+@highlightColor1: #333;
+@highlightColor2: #666;
+@highlightColor3: #999;
+
+
+/* --- Typography -------------------- */ 
+
+@headlineText: Georgia, sans-serif; 
+@bodyText: Verdana, Helvetica, Arial, sans-serif;
+
+@headlineTextSize: 2em;
+@bodyTextSize: 1em;
+
+
+
+/*
+==================================================
     Custom Variables
 ==================================================
 */
 
-// This area should contain any site-wide variables like fonts and colors. 
-
+/* --- Add additional custom variables heres -------------------- */
 
 
 /*
@@ -48,12 +72,13 @@
 }
 
 
-.gradient (@pos: bottom, @start: #333 50%, @end: #fff 50%) {
-  background-image: linear-gradient(@pos, @start, @end);
-  background-image: -o-linear-gradient(@pos, @start, @end);
-  background-image: -moz-linear-gradient(@pos, @start, @end);
-  background-image: -webkit-linear-gradient(@pos, @start, @end);
-  background-image: -ms-linear-gradient(@pos, @start, @end);
+.gradient (@start: #333, @end: #fff) {
+  background-color: @start;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+  background-image: -webkit-linear-gradient(top, @start, @end);
+  background-image: -moz-linear-gradient(top, @start, @end);
+  background-image: -o-linear-gradient(top, @start, @end);
+  background-image: linear-gradient(to bottom, @start, @end);
 }
 
 
@@ -75,25 +100,16 @@
 }
 
 
-.rotation(@value: 5deg) {
-  -webkit-transform: rotate(@value);
-  -moz-transform: rotate(@value);
-  -khtml-transform: rotate(@value);
-  -o-transform: rotate(@value);
-  transform: rotate(@value);
-}
-
-
-.scale(@value: 1.5) {
-  -webkit-transform: scale(@value);
-  -moz-transform: scale(@value);
-  -khtml-transform: scale(@value);
-  -o-transform: scale(@value);
-  transform: scale(@value);
-}
-
-
 .text-shadow(@value: 0px 1px 5px #333) { text-shadow: @value; }
+
+
+.transform(@value) {
+  -moz-transform: @value;
+  -webkit-transform: @value;
+  -o-transform: @value;
+  -ms-transform: @value;
+  transform: @value;
+}
 
 
 .transition(@duration: 0.2s, @ease: ease-out) {
@@ -103,23 +119,3 @@
   -o-transition: all @duration @ease;
   transition: all @duration @ease;
 }
-
-
-.translate(@value) {
-  -moz-transform: translate(@value);
-  -webkit-transform: translate(@value);
-  -o-transform: translate(@value);
-  -ms-transform: translate(@value);
-  transform: translate(@value);
-}
-
-
-
-
-
-
-
-
-
-
-/* ---  -------------------- */
